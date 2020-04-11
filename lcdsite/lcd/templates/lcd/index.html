@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    {% load static %}
+    <head>
+        <style>
+            img {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+            }
+
+            /* Chrome, Safari and Opera syntax */
+            :-webkit-full-screen {
+                background-color: white;
+            }
+
+            /* Firefox syntax */
+            :-moz-full-screen {
+                background-color: white;
+            }
+
+            /* IE/Edge syntax */
+            :-ms-fullscreen {
+                background-color: white;
+            }
+
+            /* Standard syntax */
+            :fullscreen {
+                background-color: white;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <img src="{% static 'lcd/fullscreen.png' %}" alt="full screen icon" align="middle" id="fullscreenicon" onclick="fullscreen();"/>
+
+        <script>
+            /* Get the documentElement (<html>) to display the page in fullscreen */
+            var elem = document.documentElement;
+            var open = false;
+            /* View in fullscreen */
+            function openFullscreen() {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.mozRequestFullScreen) { /* Firefox */
+                    elem.mozRequestFullScreen();
+                } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) { /* IE/Edge */
+                    elem.msRequestFullscreen();
+                }
+                open = true;
+            }
+
+            /* Close fullscreen */
+            function closeFullscreen() {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.mozCancelFullScreen) { /* Firefox */
+                    document.mozCancelFullScreen();
+                } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) { /* IE/Edge */
+                    document.msExitFullscreen();
+                }
+                open = false;
+            }
+
+            function fullscreen() {
+                if (open) {
+                    closeFullscreen();
+                } else {
+                    openFullscreen();
+                }
+            }
+        </script>
+    </body>
+</html>
