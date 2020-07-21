@@ -1,6 +1,6 @@
 # LCD Website
 
-This is a site built using the Django web framework to check LCD's for burnt in icons and dead pixels.
+This is a site built using the Django web framework to check LCD's for burnt in icons and dead pixels. http://www.testlcds.com/
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
